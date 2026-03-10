@@ -4,7 +4,10 @@
     const shop = Shopify.shop;
 
     const res = await fetch(
-        "https://shop-app.kesug.com/api/purchases.php?product_id="+productId+"&shop="+shop
+        "https://shop-app.kesug.com/api/purchases.php?product_id="+productId+"&shop="+shop, {
+            method: 'GET',
+            credentials: 'omit'
+        }
     );
 
     const data = await res.json();
