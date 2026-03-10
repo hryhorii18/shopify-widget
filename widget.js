@@ -3,14 +3,13 @@
     const productId = ShopifyAnalytics.meta.product.id;
     const shop = Shopify.shop;
 
-    const res = await fetch(
-        "https://shop-app.kesug.com/api/purchases.php?product_id="+productId+"&shop="+shop, {
-            method: 'GET',
-            credentials: 'omit'
-        }
-    );
-
-    const data = await res.json();
+  fetch(`https://shop-app.kesug.com/api/purchases.php?product_id=${productId}&shop=${shopDomain}`, {
+    method: 'GET',
+    credentials: 'omit'  // important: omit cookies if you don't need them
+})
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.error(err));
 
     let container = document.createElement("div");
 
@@ -31,5 +30,6 @@
     });
 
     document.querySelector('form[action="/cart/add"]').appendChild(container);
+
 
 })();
