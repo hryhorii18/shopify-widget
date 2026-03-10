@@ -3,7 +3,7 @@
     const productId = ShopifyAnalytics.meta.product.id;
     const shop = Shopify.shop;
 
-  fetch(`https://shop-app.kesug.com/api/purchases.php?product_id=${productId}&shop=${shopDomain}`, {
+  fetch(`https://shop-app.kesug.com/api/purchases.php?product_id=${productId}&shop=${shop}`, {
     method: 'GET',
     credentials: 'omit'  // important: omit cookies if you don't need them
 })
@@ -33,3 +33,4 @@
 
 
 })();
+
